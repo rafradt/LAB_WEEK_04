@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +27,7 @@ class CafeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+// Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cafe, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,6 +38,8 @@ class CafeFragment : Fragment() {
         viewPager.adapter = adapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = resources.getString(TABS_FIXED[position])
+            tab.text = resources.getString(TABS_FIXED[position].first)
         }.attach()
+
     }
 }
